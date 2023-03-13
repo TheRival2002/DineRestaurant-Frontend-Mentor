@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./booking.css">
+
+  <title>Frontend Mentor | Dine Website Challenge</title>
+</head>
+
+<body>
+
+  <header class="secondary-header | text-neutral-100">
+    <div class="container">
+      <a href="./index.html">
+        <img src="./images/logo.svg" alt="page logo">
+      </a>
+      <div class="header-content">
+        <h1 class="fs-header">Reservations</h1>
+        <p>We can’t wait to host you. If you have any special requirements please feel free to
+          call on the phone number below. We’ll be happy to accommodate you.</p>
+      </div>
+      <a class="btn" href="#">Reserve place</a>
+    </div>
+  </header>
+
+  <main class="bg-neutral-100">
+    <form action="" class="reservation-form | bg-neutral-100 text-neutral-900">
+      <div class="appearing">
+        <input type="text" placeholder="Name" id="name" name="visitor_name">
+        <label class="appearing-label-name" for="visitor_name" style="display: none;">This field is required</label>
+      </div>
+      <div class="appearing">
+        <input type="email" placeholder="Email" id="email" name="visitor_email" multiple>
+        <label class="appearing-label-email" for="visitor_email" style="display: none;">This field is required</label>
+      </div>
+      <div class="elem">
+        <div class="appearing">
+          <label for="">Pick a date</label>
+          <label class="appearing-label-date" for="" style="display: none;">This field is incomplete</label>
+        </div>
+        <input type="datetime" placeholder="MM" id="month" name="visitor_month" required>
+        <input type="datetime" placeholder="DD" id="day" name="visitor_day" required>
+        <input type="datetime" placeholder="YYYY" id="year" name="visitor_year" required>
+      </div>
+      <div class="elem">
+        <div class="appearing">
+          <label for="">Pick a time</label>
+          <label class="appearing-label-time" for="" style="display: none;">This field is incomplete</label>
+        </div>
+        <input type="hidden" placeholder="09" id="hour" name="visitor_hour">
+        <input type="time" placeholder="00" id="minute" name="visitor_min">
+        <select name="visitor_time" id="time">
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+      <div class="visitor-number">
+        <button class="counterDown"></button>
+        <label for="" id="visitor-number">2 people</label>
+        <button class="counterUp"></button>
+      </div>
+      <button class="btn" id="reserve-btn">Make reservation</button>
+    </form>
+  </main>
+
+  <footer class="bg-neutral-900 text-neutral-100 fs-300">
+    <div class="container">
+      <img src="./images/logo.svg" alt="page logo">
+      <div class="footer-info">
+        <p>Marthwaite, Sedbergh</p>
+        <p>Cumbria</p>
+        <p>+00 44 123 4567</p>
+      </div>
+      <div class="footer-worktime">
+        <p>Open Times</p>
+        <p>Mon - Fri: 09:00 AM - 10:00 PM</p>
+        <p>Sat - Sun: 09:00 AM - 11:30 PM</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+/* General Styling */
+
+form {
+  font-size: var(--fs-500);
+}
+
+@media (min-width: 40em) {
+  form {
+    font-size: var(--fs-600);
+  }
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid var(--clr-primary-100);
+  padding: 0.5em 1em;
+  width: 100%;
+  outline: 0;
+}
+
+input:focus-visible {
+  border-bottom-color: var(--clr-neutral-900);
+}
+
+.appearing {
+  position: relative;
+  width: 100%;
+}
+
+label[class^="appearing-label"] {
+  font-size: 0.75em;
+  color: var(--clr-accent-500);
+  position: absolute;
+  bottom: -2rem;
+  left: 1rem;
+}
+
+.elem label[class^="appearing-label"] {
+  bottom: -1rem;
+  left: 0;
+}
+
+/* Header */
+
+.secondary-header {
+  padding-block: 3rem 15rem;
+  background-image: url("./images/booking/hero-bg-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.secondary-header > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  align-items: center;
+  text-align: center;
+}
+
+.header-content > h1 {
+  margin-block: 1.25em 0.75em;
+}
+
+.secondary-header .btn {
+  background-color: transparent !important;
+}
+
+@media (min-width: 40em) {
+  .secondary-header {
+    background-image: url("./images/booking/hero-bg-tablet.jpg");
+  }
+  .secondary-header > .container > img {
+    align-self: start;
+  }
+  .header-content {
+    max-width: 50ch;
+  }
+  .secondary-header .btn {
+    display: none;
+  }
+}
+
+@media (min-width: 60em) {
+  .secondary-header {
+    background-image: url("./images/booking/hero-bg-desktop.jpg");
+  }
+  .secondary-header > .container {
+    align-items: start;
+    text-align: left;
+  }
+  .header-content {
+    max-width: 40ch;
+  }
+  .header-content > h1 {
+    margin-block: 1.5em 0.5em;
+  }
+  .secondary-header .btn {
+    display: none;
+  }
+}
+
+/* Main Form */
+
+main > form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25em;
+  align-items: start;
+  max-width: 90%;
+  margin-inline: auto;
+  padding: 2em;
+  box-shadow: 0 70px 120px -70px var(--clr-neutral-900);
+  transform: translateY(-8rem);
+}
+
+@media (min-width: 40em) {
+  main > form {
+    max-width: 70%;
+  }
+}
+
+#name,
+#email {
+  display: block;
+}
+
+form > .btn {
+  cursor: pointer;
+  text-align: center;
+  margin-inline: auto;
+  width: 100%;
+}
+
+@media (min-width: 60em) {
+  main {
+    position: relative;
+    isolation: isolate;
+    height: 320px;
+  }
+  main::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image: url("./images/patterns/pattern-curve-bottom-right.svg");
+    background-repeat: no-repeat;
+  }
+  main::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 180px 0 0 45%;
+    background-image: url("./images/patterns/pattern-lines.svg");
+    background-repeat: no-repeat;
+  }
+  main > form {
+    position: relative;
+    transform: translate(50%, -65%);
+    max-width: 40%;
+  }
+}
+
+.elem {
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "month day year";
+  grid-auto-columns: 1fr;
+  gap: 0.75em;
+}
+
+.appearing {
+  grid-area: title;
+}
+
+#month {
+  grid-area: month;
+}
+
+#day {
+  grid-area: day;
+}
+
+#year {
+  grid-area: year;
+}
+
+#hour {
+  grid-area: month;
+}
+
+#minute {
+  grid-area: day;
+}
+
+#time {
+  grid-area: year;
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid var(--clr-primary-100);
+  outline: 0;
+  padding-left: 1.5rem;
+  background-image: url("./images/icons/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 75% 40%;
+}
+
+@media (min-width: 80em) {
+  .elem {
+    grid-template-areas: "title month day year";
+  }
+  .elem > label {
+    align-self: center;
+  }
+}
+
+#time:focus-visible {
+  border-bottom-color: var(--clr-neutral-900);
+}
+
+.visitor-number {
+  display: grid;
+  grid-template-areas: "minus count plus";
+  width: 100%;
+  border-bottom: 1px solid var(--clr-primary-100);
+}
+
+.visitor-number > button {
+  background-color: transparent;
+  border: 0;
+  background-repeat: no-repeat;
+  background-position: 30% 30%;
+  cursor: pointer;
+}
+
+.visitor-number > button:first-child {
+  background-image: url("./images/icons/icon-minus.svg");
+}
+
+.visitor-number > button:last-child {
+  background-image: url("./images/icons/icon-plus.svg");
+  background-position: 70% 30%;
+}
+
+.visitor-number > label {
+  grid-area: count;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  color: var(--clr-primary-200);
+}
