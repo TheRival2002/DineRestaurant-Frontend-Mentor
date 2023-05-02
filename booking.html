@@ -11,6 +11,10 @@
     rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
+  <link href="./assets/css/fontawesome.css" rel="stylesheet">
+  <link href="./assets/css/brands.css" rel="stylesheet">
+  <link href="./assets/css/solid.css" rel="stylesheet">
+
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./booking.css">
 
@@ -36,11 +40,11 @@
   <main class="bg-neutral-100">
     <form action="" class="reservation-form | bg-neutral-100 text-neutral-900">
       <div class="appearing">
-        <input type="text" placeholder="Name" id="name" name="visitor_name">
+        <input type="text" placeholder="Name" id="name" name="visitor_name" required>
         <label class="appearing-label-name" for="visitor_name" style="display: none;">This field is required</label>
       </div>
       <div class="appearing">
-        <input type="email" placeholder="Email" id="email" name="visitor_email" multiple>
+        <input type="email" placeholder="Email" id="email" name="visitor_email" multiple required>
         <label class="appearing-label-email" for="visitor_email" style="display: none;">This field is required</label>
       </div>
       <div class="elem">
@@ -58,16 +62,20 @@
           <label class="appearing-label-time" for="" style="display: none;">This field is incomplete</label>
         </div>
         <input type="hidden" placeholder="09" id="hour" name="visitor_hour">
-        <input type="time" placeholder="00" id="minute" name="visitor_min">
-        <select name="visitor_time" id="time">
-          <option value="AM">AM</option>
-          <option value="PM">PM</option>
-        </select>
+        <div id="minute-wrap">
+          <input type="time" placeholder="00" id="minute" name="visitor_min" required>
+        </div>
+        <div id="time-wrap">
+          <select name="visitor_time" id="time">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
       </div>
       <div class="visitor-number">
-        <button class="counterDown"></button>
+        <span class="counterDown"></span>
         <label for="" id="visitor-number">2 people</label>
-        <button class="counterUp"></button>
+        <span class="counterUp"></span>
       </div>
       <button class="btn" id="reserve-btn">Make reservation</button>
     </form>
@@ -89,7 +97,8 @@
     </div>
   </footer>
 
-  <script src="./index.js"></script>
+  <script src="./js/booking.js"></script>
+  <script src="https://kit.fontawesome.com/4afd61c783.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

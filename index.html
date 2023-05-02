@@ -11,6 +11,10 @@
     rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
+  <link href="./assets/css/fontawesome.css" rel="stylesheet">
+  <link href="./assets/css/brands.css" rel="stylesheet">
+  <link href="./assets/css/solid.css" rel="stylesheet">
+
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./index.css">
 
@@ -19,7 +23,7 @@
 
 <body>
 
-  <header class="text-neutral-100">
+  <header class="text-neutral-100" id="header">
     <div class="header-container">
       <div class="header-content | container">
         <img class="header-logo" src="./images/logo.svg" alt="page logo">
@@ -60,7 +64,7 @@
           </div>
         </div>
         <div class="description">
-          <div class="description-content">
+          <div class="description-content | from-left">
             <h2 class="fs-sub-header fw-700">The most locally sourced food</h2>
             <p>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re
               eating the freshest, most sustainable food.</p>
@@ -152,8 +156,8 @@
           <div class="experience-opportunity">
             <div class="experience-options | fs-500 fw-600 text-primary-300">
               <button class="family-gathering">Family Gathering</button>
-              <button class="special-events" onclick="showDiv2()">Special Events</button>
-              <button class="social-events" onclick="showDiv3()">Social Events</button>
+              <button class="special-events" onclick="showSpecial()">Special Events</button>
+              <button class="social-events" onclick="showSocial()">Social Events</button>
             </div>
             <div class="experience-info">
               <h2 class="fs-sub-header fw-700">Family Gathering</h2>
@@ -177,9 +181,9 @@
           </div>
           <div class="experience-opportunity">
             <div class="experience-options | fs-500 fw-600 text-primary-300">
-              <button class="family-gathering" onclick="showDiv1()">Family Gathering</button>
+              <button class="family-gathering" onclick="showFamily()">Family Gathering</button>
               <button class="special-events">Special Events</button>
-              <button class="social-events" onclick="showDiv3()">Social Events</button>
+              <button class="social-events" onclick="showSocial()">Social Events</button>
             </div>
             <div class="experience-info">
               <h2 class="fs-sub-header fw-700">Special Events</h2>
@@ -202,8 +206,8 @@
           </div>
           <div class="experience-opportunity">
             <div class="experience-options | fs-500 fw-600 text-primary-300">
-              <button class="family-gathering" onclick="showDiv1()">Family Gathering</button>
-              <button class="special-events" onclick="showDiv2()">Special Events</button>
+              <button class="family-gathering" onclick="showFamily()">Family Gathering</button>
+              <button class="special-events" onclick="showSpecial()">Special Events</button>
               <button class="social-events">Social Events</button>
             </div>
             <div class="experience-info">
@@ -246,7 +250,11 @@
     </footer>
   </main>
 
-  <script src="./index.js"></script>
+  <a href="#header" class="back-to-top">
+    <i class="fa-solid fa-arrow-up fa-flip fa-lg" id="to-top-icon"></i>
+  </a>
+
+  <script src="./js/index.js"></script>
 </body>
 
 </html>

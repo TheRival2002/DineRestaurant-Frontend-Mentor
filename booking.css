@@ -18,6 +18,16 @@ input {
   outline: 0;
 }
 
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+@media (max-width: 350px) {
+  .elem input {
+    padding-inline: 0;
+  }
+}
+
 input:focus-visible {
   border-bottom-color: var(--clr-neutral-900);
 }
@@ -63,7 +73,7 @@ label[class^="appearing-label"] {
 }
 
 .secondary-header .btn {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 @media (min-width: 40em) {
@@ -130,6 +140,7 @@ form > .btn {
   text-align: center;
   margin-inline: auto;
   width: 100%;
+  transition: all 1200ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @media (min-width: 60em) {
@@ -159,9 +170,14 @@ form > .btn {
     transform: translate(50%, -65%);
     max-width: 40%;
   }
+  form > .btn:hover,
+  form > .btn:focus-visible {
+    box-shadow: inset 40em 0 0 0 var(--clr-neutral-100);
+  }
 }
 
 .elem {
+  width: 100%;
   display: grid;
   grid-template-areas:
     "title title title"
@@ -190,21 +206,176 @@ form > .btn {
   grid-area: month;
 }
 
-#minute {
+#minute-wrap {
   grid-area: day;
+  position: relative;
+}
+
+#minute {
+  cursor: pointer;
+}
+
+#minute::before {
+  content: "\01F550";
+  position: absolute;
+  right: 15%;
+  top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+#minute-wrap > .hour-container {
+  color: var(--clr-primary-700);
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#minute-wrap ::-webkit-scrollbar {
+  display: none;
+}
+
+.hour-container:not(:has(.open-hours)) {
+  display: none;
+}
+
+.hour-container > div {
+  position: absolute;
+  top: 0.6125rem;
+  left: 0;
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+  width: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.hour-container > .open-hours {
+  opacity: 1;
+}
+
+.main-hour {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.main-hour p {
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.main-hour p:not(:last-child)::after {
+  content: "";
+  height: 1px;
+  width: calc(100% - 0.75rem);
+  background-color: var(--clr-neutral-100);
+  position: absolute;
+  bottom: 0;
+  left: 0.375rem;
+}
+
+.main-hour > :first-child {
+  position: relative;
+  isolation: isolate;
+}
+
+.main-hour > :first-child::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-right: 1px solid var(--clr-neutral-100);
 }
 
 #time {
-  grid-area: year;
-  cursor: pointer;
   appearance: none;
-  border: 0;
+}
+
+#time-wrap {
+  grid-area: year;
+  position: relative;
   border-bottom: 1px solid var(--clr-primary-100);
-  outline: 0;
+}
+
+#time-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--clr-primary-100);
+}
+
+#time-wrap select {
+  display: none;
+}
+
+#time-wrap > .choice-container {
+  color: var(--clr-primary-100);
+  cursor: pointer;
   padding-left: 1.5rem;
   background-image: url("./images/icons/icon-arrow.svg");
   background-repeat: no-repeat;
-  background-position: 75% 40%;
+  background-position: 80% 20%;
+  width: 100%;
+  height: 100%;
+  transform: translateY(0.6125rem);
+  position: relative;
+}
+
+.choice-container > div {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+  width: 100%;
+  padding: 0 1rem;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.choice-container > div.open-choices {
+  opacity: 1;
+}
+
+.choice-container p {
+  padding: 0.5rem 0;
+  position: relative;
+  display: none;
+}
+
+.choice-container .open-choices p {
+  display: block;
+}
+
+.choice-container p:not(:last-child)::after {
+  content: "";
+  height: 1px;
+  width: calc(100% + 1.5rem);
+  background-color: var(--clr-neutral-100);
+  position: absolute;
+  bottom: 0;
+  left: -0.75rem;
+}
+
+@media (max-width: 60em) {
+  #minute,
+  #time-wrap {
+    min-width: 5rem;
+  }
+}
+
+@media (min-width: 60em) {
+  #minute,
+  #time-wrap {
+    min-width: 8rem;
+  }
 }
 
 @media (min-width: 80em) {
@@ -227,7 +398,7 @@ form > .btn {
   border-bottom: 1px solid var(--clr-primary-100);
 }
 
-.visitor-number > button {
+.visitor-number > span {
   background-color: transparent;
   border: 0;
   background-repeat: no-repeat;
@@ -235,11 +406,11 @@ form > .btn {
   cursor: pointer;
 }
 
-.visitor-number > button:first-child {
+.visitor-number > span:first-child {
   background-image: url("./images/icons/icon-minus.svg");
 }
 
-.visitor-number > button:last-child {
+.visitor-number > span:last-child {
   background-image: url("./images/icons/icon-plus.svg");
   background-position: 70% 30%;
 }
