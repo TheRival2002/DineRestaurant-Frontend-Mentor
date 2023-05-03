@@ -36,15 +36,26 @@ window.addEventListener("scroll", () => {
   window.pageYOffset > 1000
     ? backToTop.classList.add("visible")
     : backToTop.classList.remove("visible");
+  if (window.pageYOffset < 500) {
+    descContents.forEach((content) => {
+      appearOnScroll.observe(content);
+    });
+  }
+});
 
-  descContents.forEach((content, index) => {
-    const fromTop = content.getBoundingClientRect().top;
-    const contentHeight = content.getBoundingClientRect().height;
-    const startSliding = fromTop - contentHeight - 400;
-    if (startSliding < 0) {
-      content.classList.add("visible");
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -100px 0px",
+};
+
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      entry.target.classList.remove("visible");
+      return;
     } else {
-      content.classList.remove("visible");
+      entry.target.classList.add("visible");
+      appearOnScroll.unobserve(entry.target);
     }
   });
-});
+}, appearOptions);

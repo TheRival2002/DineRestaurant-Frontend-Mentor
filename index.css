@@ -134,6 +134,7 @@
 
 .description:first-child {
   transform: translateY(-10%);
+  overflow-x: hidden;
 }
 
 .description:last-child {
