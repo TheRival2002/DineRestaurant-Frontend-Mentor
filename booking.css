@@ -367,7 +367,7 @@ form > .btn {
 @media (max-width: 60em) {
   #minute,
   #time-wrap {
-    min-width: 5rem;
+    min-width: 6rem;
   }
 }
 
