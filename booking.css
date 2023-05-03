@@ -368,6 +368,7 @@ form > .btn {
   #minute,
   #time-wrap {
     min-width: 6rem;
+    min-height: 3rem;
   }
 }
 
