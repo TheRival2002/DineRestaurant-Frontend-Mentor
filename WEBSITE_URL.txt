@@ -1,3 +1,39 @@
-https://therival2002.github.io/DineRestaurant-Frontend-Mentor/
+btnFamily.addEventListener("click", function () {
+  bookingFamily.style.removeProperty("display");
+  bookingSpecial.style.setProperty("display", "none");
+  bookingSocial.style.setProperty("display", "none");
+});
 
-Starting Design: https://www.frontendmentor.io/challenges/dine-restaurant-website-yAt7Vvxt7
+btnSpecial.addEventListener("click", function () {
+  bookingSpecial.style.removeProperty("display");
+
+  bookingFamily.style.setProperty("display", "none");
+  bookingSocial.style.setProperty("display", "none");
+});
+
+btnSocial.addEventListener("click", function () {
+  bookingSocial.style.removeProperty("display");
+  bookingFamily.style.setProperty("display", "none");
+  bookingSpecial.style.setProperty("display", "none");
+});
+
+  
+
+
+
+  Name
+  Email
+  Pick a date
+  Pick a time
+
+  Make Reservation
+
+
+
+  Marthwaite, Sedbergh
+  Cumbria
+  +00 44 123 4567
+
+  Open Times
+  Mon - Fri: 09:00 AM - 10:00 PM
+  Sat - Sun: 09:00 AM - 11:30 PM

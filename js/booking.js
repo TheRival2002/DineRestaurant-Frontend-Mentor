@@ -148,3 +148,16 @@ appendingHourContainer()
       });
     });
   });
+
+// disabling the clock
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  const timeInputs = document.querySelectorAll('input[type="time"]');
+  timeInputs.forEach((input) => {
+    input.addEventListener("click", (event) => {
+      event.preventDefault();
+    });
+  });
+}

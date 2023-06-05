@@ -385,6 +385,16 @@
   align-items: center;
   text-align: center;
   margin-block: 5rem 7.75rem;
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .experience-img {
